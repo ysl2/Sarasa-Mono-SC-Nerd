@@ -1,0 +1,40 @@
+diff --git a/font-patcher b/font-patcher
+index dbecf605..779c6aac 100755
+--- a/font-patcher
++++ b/font-patcher
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # coding=utf8
+ # Nerd Fonts Version: 2.1.0
+ # script version: 3.0.1
+@@ -714,16 +714,17 @@ class font_patcher:
+                     if scale_factor and use_scale_glyph(sym_glyph.unicode, scaleGlyph['GlyphsToScale']):
+                         # We want to preserve the relative size of each glyph to other glyphs
+                         # in the same symbol font.
+-                        scale_ratio_x = scale_factor
+-                        scale_ratio_y = scale_factor
++                        scale_ratio_x = self.font_dim['width'] / sym_dim['width']
++                        scale_ratio_y = self.font_dim['height'] / sym_dim['height']
+                     else:
+                         # In this case, each glyph is sized independently to each other
+-                        scale_ratio_x = self.get_scale_factor(sym_dim)
+-                        scale_ratio_y = scale_ratio_x
++                        scale_ratio_x = self.font_dim['width'] / sym_dim['width']
++                        scale_ratio_y = self.font_dim['height'] / sym_dim['height']
+                 else:
+                     if 'x' in sym_attr['stretch']:
+                         # Stretch the glyph horizontally to fit the entire available width
+                         scale_ratio_x = self.font_dim['width'] / sym_dim['width']
++                        scale_ratio_y = self.font_dim['height'] / sym_dim['height']
+             # end if single width
+ 
+             # non-monospace (double width glyphs)
+@@ -734,6 +735,7 @@ class font_patcher:
+             if 'y' in sym_attr['stretch']:
+                 # Stretch the glyph vertically to total line height (good for powerline separators)
+                 # Currently stretching vertically for both monospace and double-width
++                scale_ratio_x = self.font_dim['width'] / sym_dim['width']
+                 scale_ratio_y = self.font_dim['height'] / sym_dim['height']
+ 
+             if scale_ratio_x != 1 or scale_ratio_y != 1:

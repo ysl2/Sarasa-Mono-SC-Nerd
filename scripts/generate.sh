@@ -1,0 +1,10 @@
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-bold.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-bolditalic.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-extralight.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-extralightitalic.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-italic.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-light.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-lightitalic.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-regular.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-semibold.ttf
+./font-patcher -l --powerline --powerlineextra --fontawesome --fontawesomeextension --fontlogos --octicons ./sarasa/sarasa-mono-sc-semibolditalic.ttf

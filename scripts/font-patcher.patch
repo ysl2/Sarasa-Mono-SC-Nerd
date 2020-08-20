@@ -1,5 +1,5 @@
 diff --git a/font-patcher b/font-patcher
-index dbecf605..61dfa615 100755
+index dbecf605..3ab7a1e5 100755
 --- a/font-patcher
 +++ b/font-patcher
 @@ -1,4 +1,4 @@
@@ -17,18 +17,17 @@ index dbecf605..61dfa615 100755
  projectNameAbbreviation = "NF"
  projectNameSingular = projectName[:-1]
  
-@@ -65,6 +65,10 @@ class font_patcher:
-             self.extension = os.path.splitext(self.sourceFont.path)[1]
+@@ -66,6 +66,9 @@ class font_patcher:
          else:
              self.extension = '.' + self.args.extension
-+        self.output_file_name = (
-+            os.path.basename(self.args.font).replace(self.extension, "") + "-nerd"
-+        )
-+
  
++        segs = os.path.basename(self.args.font).replace(self.extension, "").split("-")
++        segs = segs[:-1] + ["nerd"] + segs[-1:]
++        self.output_file_name = "-".join(segs)
  
      def patch(self):
-@@ -106,14 +110,14 @@ class font_patcher:
+         if self.args.single:
+@@ -106,14 +109,14 @@ class font_patcher:
  
          # the `PfEd-comments` flag is required for Fontforge to save '.comment' and '.fontlog'.
          if self.sourceFont.fullname != None:
@@ -46,7 +45,7 @@ index dbecf605..61dfa615 100755
              print("\nPost Processed: {}".format(self.sourceFont.fullname))
  
  
-@@ -221,32 +225,7 @@ class font_patcher:
+@@ -221,32 +224,7 @@ class font_patcher:
          else:
              additionalFontNameSuffix = verboseAdditionalFontNameSuffix
          if not self.args.complete:
@@ -80,7 +79,7 @@ index dbecf605..61dfa615 100755
          # if all source glyphs included simplify the name
          else:
              additionalFontNameSuffix = " " + projectNameSingular + " Complete"
-@@ -374,9 +353,16 @@ class font_patcher:
+@@ -374,9 +352,17 @@ class font_patcher:
          fontname   = replace_font_name(fontname,   additionalFontNameReplacements2)
  
          # replace any extra whitespace characters:
@@ -92,6 +91,7 @@ index dbecf605..61dfa615 100755
 +        style = ["regular"] if len(style) == 0 else style
 +        fontname = self.sourceFont.familyname.replace(" ", "") + "-" + "".join(style)
 +        self.sourceFont.fontname   = fontname
++        self.sourceFont.fullname = self.sourceFont.familyname + " " + "".join(style)
 +
 +        print(self.sourceFont.familyname)
 +        print(self.sourceFont.fullname)

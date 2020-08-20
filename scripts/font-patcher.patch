@@ -1,5 +1,5 @@
 diff --git a/font-patcher b/font-patcher
-index dbecf605..6e922eaf 100755
+index dbecf605..61dfa615 100755
 --- a/font-patcher
 +++ b/font-patcher
 @@ -1,4 +1,4 @@
@@ -8,6 +8,15 @@ index dbecf605..6e922eaf 100755
  # coding=utf8
  # Nerd Fonts Version: 2.1.0
  # script version: 3.0.1
+@@ -6,7 +6,7 @@
+ from __future__ import absolute_import, print_function, unicode_literals
+ 
+ version = "2.1.0"
+-projectName = "Nerd Fonts"
++projectName = "Nerds"
+ projectNameAbbreviation = "NF"
+ projectNameSingular = projectName[:-1]
+ 
 @@ -65,6 +65,10 @@ class font_patcher:
              self.extension = os.path.splitext(self.sourceFont.path)[1]
          else:
@@ -37,7 +46,60 @@ index dbecf605..6e922eaf 100755
              print("\nPost Processed: {}".format(self.sourceFont.fullname))
  
  
-@@ -714,16 +718,17 @@ class font_patcher:
+@@ -221,32 +225,7 @@ class font_patcher:
+         else:
+             additionalFontNameSuffix = verboseAdditionalFontNameSuffix
+         if not self.args.complete:
+-            # NOTE not all symbol fonts have appended their suffix here
+-            if self.args.fontawesome:
+-                additionalFontNameSuffix += " A"
+-                verboseAdditionalFontNameSuffix += " Plus Font Awesome"
+-            if self.args.fontawesomeextension:
+-                additionalFontNameSuffix += " AE"
+-                verboseAdditionalFontNameSuffix += " Plus Font Awesome Extension"
+-            if self.args.octicons:
+-                additionalFontNameSuffix += " O"
+-                verboseAdditionalFontNameSuffix += " Plus Octicons"
+-            if self.args.powersymbols:
+-                additionalFontNameSuffix += " PS"
+-                verboseAdditionalFontNameSuffix += " Plus Power Symbols"
+-            if self.args.pomicons:
+-                additionalFontNameSuffix += " P"
+-                verboseAdditionalFontNameSuffix += " Plus Pomicons"
+-            if self.args.fontlinux:
+-                additionalFontNameSuffix += " L"
+-                verboseAdditionalFontNameSuffix += " Plus Font Logos (Font Linux)"
+-            if self.args.material:
+-                additionalFontNameSuffix += " MDI"
+-                verboseAdditionalFontNameSuffix += " Plus Material Design Icons"
+-            if self.args.weather:
+-                additionalFontNameSuffix += " WEA"
+-                verboseAdditionalFontNameSuffix += " Plus Weather Icons"
+-
++            pass
+         # if all source glyphs included simplify the name
+         else:
+             additionalFontNameSuffix = " " + projectNameSingular + " Complete"
+@@ -374,9 +353,16 @@ class font_patcher:
+         fontname   = replace_font_name(fontname,   additionalFontNameReplacements2)
+ 
+         # replace any extra whitespace characters:
+-        self.sourceFont.familyname = " ".join(familyname.split())
++        self.sourceFont.familyname = "Sarasa Mono SC Nerd"
+         self.sourceFont.fullname   = " ".join(fullname.split())
+-        self.sourceFont.fontname   = " ".join(fontname.split())
++        style = self.sourceFont.fullname.split()[3:-1]
++        style = ["regular"] if len(style) == 0 else style
++        fontname = self.sourceFont.familyname.replace(" ", "") + "-" + "".join(style)
++        self.sourceFont.fontname   = fontname
++
++        print(self.sourceFont.familyname)
++        print(self.sourceFont.fullname)
++        print(self.sourceFont.fontname)
+ 
+         self.sourceFont.appendSFNTName(str('English (US)'), str('Preferred Family'), self.sourceFont.familyname)
+         self.sourceFont.appendSFNTName(str('English (US)'), str('Family'), self.sourceFont.familyname)
+@@ -714,16 +700,17 @@ class font_patcher:
                      if scale_factor and use_scale_glyph(sym_glyph.unicode, scaleGlyph['GlyphsToScale']):
                          # We want to preserve the relative size of each glyph to other glyphs
                          # in the same symbol font.
@@ -59,7 +121,7 @@ index dbecf605..6e922eaf 100755
              # end if single width
  
              # non-monospace (double width glyphs)
-@@ -734,6 +739,7 @@ class font_patcher:
+@@ -734,6 +721,7 @@ class font_patcher:
              if 'y' in sym_attr['stretch']:
                  # Stretch the glyph vertically to total line height (good for powerline separators)
                  # Currently stretching vertically for both monospace and double-width

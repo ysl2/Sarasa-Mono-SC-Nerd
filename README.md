@@ -5,6 +5,13 @@ fonts](https://github.com/ryanoasis/nerd-fonts)补丁。
 
 ![显示效果](screenshots/demo.png)
 
+## 安装
+MacOS 用户可以直接通过cask安装：
+``` sh
+brew tap laishulu/cask-fonts
+brew cask install font-sarasa-nerd
+```
+
 ## 使用
 在你的主题配置文件中，使用 `Sarasa Mono SC Nerd`。
 

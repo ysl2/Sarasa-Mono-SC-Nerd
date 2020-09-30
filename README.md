@@ -4,7 +4,6 @@
 fonts](https://github.com/ryanoasis/nerd-fonts)补丁。
 
 文字效果如下：
-
 ![文字效果](screenshots/character.png)
 
 图标效果如下：

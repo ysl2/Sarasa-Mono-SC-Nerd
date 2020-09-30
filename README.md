@@ -3,7 +3,12 @@
 [Sarasa Mono SC](https://github.com/be5invis/Sarasa-Gothic)字体打了 [Nerd
 fonts](https://github.com/ryanoasis/nerd-fonts)补丁。
 
-![显示效果](screenshots/demo.png)
+文字效果如下：
+
+![文字效果](screenshots/character.png)
+
+图标效果如下：
+![图标效果](screenshots/icon.png)
 
 ## 安装
 MacOS 用户可以直接通过cask安装：

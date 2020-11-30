@@ -33,3 +33,11 @@ brew cask install font-sarasa-nerd
   问题。
 - 本项目对字体在`Chinese (PRC)`和`English (US)`下的`Family`, `SubFamily`和
   `UniqueID`等多个属性进行了设置，避免了很多问题。
+
+## 基于其它 Sarasa 字体
+
+1. `git checkout <commit-id>` 其中的 `commit-id` 来自于 
+   *./scripts/nerd-font-commit.txt*
+2. 运行 `patch font-patcher < ./scripts/font-patcher.patch`
+3. 修改 *font-patcher* 文件中 `Mono SC` (约87行)
+4. 把 *./scripts/generate.sh* 中的字体路径改好，然后执行

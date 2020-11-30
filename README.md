@@ -36,8 +36,9 @@ brew cask install font-sarasa-nerd
 
 ## 基于其它 Sarasa 字体
 
-1. `git checkout <commit-id>` 其中的 `commit-id` 来自于 
-   *./scripts/nerd-font-commit.txt*
-2. 运行 `patch font-patcher < ./scripts/font-patcher.patch`
-3. 修改 *font-patcher* 文件中 `Mono SC` (约87行)
-4. 把 *./scripts/generate.sh* 中的字体路径改好，然后执行
+1. 进入 `nerd font` 源码目录，将本项目 *scripts* 目录下的文件拷贝过去。
+2. `git checkout <commit-id>` 其中的 `commit-id` 来自于
+   *nerd-font-commit.txt*
+3. 运行 *./patch.sh*
+4. 修改 *font-patcher* 文件中 `Mono SC` (约87行)
+5. 把 *./generate.sh* 中的字体路径改好，然后执行

@@ -1,3 +1,8 @@
+```bash
+git clone https://hub.fastgit.org/ysl2/Sarasa-Mono-SC-Nerd/.git ~/.local/share/fonts/sarasa
+mv ~/.local/share/fonts/sarasa/* ~/.local/share/fonts/
+```
+
 ## 关于
 
 [Sarasa Mono SC](https://github.com/be5invis/Sarasa-Gothic)字体打了 [Nerd
@@ -11,6 +16,7 @@ fonts](https://github.com/ryanoasis/nerd-fonts)补丁。
 
 ## 安装
 MacOS 用户可以直接通过cask安装：
+
 ``` sh
 brew tap laishulu/cask-fonts
 brew cask install font-sarasa-nerd
